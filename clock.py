@@ -47,11 +47,11 @@ class ClockWidget(QWidget):
         center_y = self.height() // 2
 
         # 绘制时钟外圆
-        painter.setPen(QPen(QColor(0, 0, 0), 5))
+        painter.setPen(QPen(QColor(173,255,47), 5))
         painter.drawEllipse(center_x - 201, center_y - 201, 402, 402)
 
         # 绘制中心点
-        painter.setPen(QPen(QColor(0, 0, 0), 5))
+        painter.setPen(QPen(QColor(0, 0, 0), 10))
         painter.drawPoint(center_x, center_y)
 
         l0 = 190
@@ -73,15 +73,16 @@ class ClockWidget(QWidget):
             o = int(center_y - l4 * math.cos(angle))
 
             if i % 5 == 0:
-                painter.setPen(QPen(QColor(138, 94, 20), 7))
+                painter.setPen(QPen(QColor(250, 241, 147), 7))
                 painter.drawLine(x, y, m, n)
+
                 font_ = QFont("Arial", 12)
                 painter.setFont(font_)
-                painter.setPen(QPen(QColor(0, 0, 0), 4))
+                painter.setPen(QPen(QColor(250,250,250), 4))
                 painter.drawText(e - 5, o, '12' if str(int(i / 5)) == '0' else str(int(i / 5)))
 
             else:
-                painter.setPen(QPen(QColor(0, 0, 0), 4))
+                painter.setPen(QPen(QColor(0,100,0), 4))
                 painter.drawLine(p, q, m, n)
 
 
@@ -111,7 +112,7 @@ class ClockWidget(QWidget):
         end_x = center_x + length * math.sin(angle)
         end_y = center_y - length * math.cos(angle)
 
-        color_li = [(251, 146, 60), (6, 146, 207), (30, 31, 34)]
+        color_li = [(251, 146, 60), (231, 232, 232), (60, 110, 169)]
         if handel_type == 'second':
             painter.setPen(QPen(QColor(*color_li[0]), width))
         if handel_type == 'minute':
